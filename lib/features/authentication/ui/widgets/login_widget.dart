@@ -44,9 +44,12 @@ class _LoginWidgetsState extends State<LoginWidgets> {
               });
             }
             if (state is SocialLoginSucess) {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => DashBoardPage(),
-              ));
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DashBoardPage(),
+                  ),
+                  (route) => false);
               SnackBarUtils.showSnackBar(
                   context: context, message: "Logged in Sucessfull");
             }
@@ -69,9 +72,12 @@ class _LoginWidgetsState extends State<LoginWidgets> {
               });
             }
             if (state is LoginSucess) {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => DashBoardPage(),
-              ));
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DashBoardPage(),
+                  ),
+                  (route) => false);
               SnackBarUtils.showSnackBar(
                   context: context, message: "Logged in Sucessfully");
             } else if (state is LoginError) {
